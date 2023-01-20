@@ -1,4 +1,6 @@
 import React, { useState } from "react";
+import male from "../assets/maleProfile.jpg";
+import female from "../assets/femaleProfile.jpg";
 
 const Employees = () => {
   const state = [
@@ -88,7 +90,30 @@ const Employees = () => {
     },
   ];
   const [employees, setEmployees] = useState(state);
-  return <div></div>;
+
+  return (
+    <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr 1fr" }}>
+      {employees.map((employee) => (
+        <div
+          class="card"
+          style={{
+            width: "18rem",
+          }}
+        >
+          <img
+            src={employee.gender === "male" ? male : female}
+            alt="employee"
+          />
+          <div className="card-body">
+            <p class="card-text">Name: {employee.fullName}</p>
+            <p class="card-text">Designation: {employee.designation}</p>
+            <p class="card-text">Gender: {employee.gender}</p>
+            <p class="card-text">Team: {employee.teamName}</p>
+          </div>
+        </div>
+      ))}
+    </div>
+  );
 };
 
 export default Employees;
