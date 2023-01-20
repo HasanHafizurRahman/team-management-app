@@ -105,10 +105,10 @@ const Employees = () => {
             alt="employee"
           />
           <div className="card-body">
-            <p class="card-text">Name: {employee.fullName}</p>
+            <p class="card-text fw-bold">Name: {employee.fullName}</p>
             <p class="card-text">Designation: {employee.designation}</p>
             <p class="card-text">Gender: {employee.gender}</p>
-            <p class="card-text">Team: {employee.teamName}</p>
+            <p class="card-text text-primary">Team: {employee.teamName}</p>
           </div>
         </div>
       ))}
