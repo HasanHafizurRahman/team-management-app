@@ -90,29 +90,48 @@ const Employees = () => {
     },
   ];
   const [employees, setEmployees] = useState(state);
+  const [selectedTeam, setSelectedTeam] = useState("Team A");
+  const handleChange = (e) => {
+    setSelectedTeam(e.target.value);
+  };
 
   return (
-    <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr 1fr" }}>
-      {employees.map((employee) => (
-        <div
-          class="card"
-          style={{
-            width: "18rem",
-          }}
+    <main className="container">
+      <div class="container">
+        <select
+          class="form-select form-select-lg mb-3"
+          value={selectedTeam}
+          onChange={handleChange}
         >
-          <img
-            src={employee.gender === "male" ? male : female}
-            alt="employee"
-          />
-          <div className="card-body">
-            <p class="card-text fw-bold">Name: {employee.fullName}</p>
-            <p class="card-text">Designation: {employee.designation}</p>
-            <p class="card-text">Gender: {employee.gender}</p>
-            <p class="card-text text-primary">Team: {employee.teamName}</p>
+          <option value="Team A">Team A</option>
+          <option value="Team B">Team B</option>
+          <option value="Team C">Team C</option>
+          <option value="Team D">Team D</option>
+        </select>
+      </div>
+      <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr 1fr" }}>
+        {employees.map((employee) => (
+          <div
+            class="card"
+            style={{
+              width: "18rem",
+              cursor: "pointer",
+            }}
+          >
+            <img
+              src={employee.gender === "male" ? male : female}
+              alt="employee"
+            />
+            <div className="card-body">
+              <p class="card-text fw-bold">Name: {employee.fullName}</p>
+              <p class="card-text">Designation: {employee.designation}</p>
+              <p class="card-text">Gender: {employee.gender}</p>
+              <p class="card-text text-primary">Team: {employee.teamName}</p>
+            </div>
           </div>
-        </div>
-      ))}
-    </div>
+        ))}
+      </div>
+    </main>
   );
 };
 
